@@ -1,0 +1,10 @@
+{
+  "name": "naive-chain-cpp",
+  "version": "0.1.0",
+  "description": "Naive blockchain C++",
+  "homepage": "https://github.com/wilricknl/NaiveChainCpp",
+  "dependencies": [
+    "catch2",
+    "picosha2"
+  ]
+}
