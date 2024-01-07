@@ -5,6 +5,12 @@
   "homepage": "https://github.com/wilricknl/NaiveChainCpp",
   "dependencies": [
     "catch2",
+    "glad",
+    "glfw3",
+    {
+      "name": "imgui",
+      "features": [ "docking-experimental", "freetype", "glfw-binding", "opengl3-binding" ]
+    },
     "picosha2"
   ]
 }

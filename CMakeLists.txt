@@ -28,6 +28,10 @@ endif()
 # -----------------------------------------------------------------------------
 
 find_package(Catch2 CONFIG REQUIRED)
+find_package(glad REQUIRED)
+find_package(glfw3 3.3 REQUIRED)
+find_package(imgui CONFIG REQUIRED)
+find_package(OpenGL REQUIRED)
 find_path(PICOSHA2_INCLUDE_DIRS "picosha2.h")
 
 include_directories(include)
@@ -42,6 +46,28 @@ add_library(naivechain
 target_include_directories(naivechain
     PRIVATE
     ${PICOSHA2_INCLUDE_DIRS})
+
+# -----------------------------------------------------------------------------
+# NaiveChain node
+# -----------------------------------------------------------------------------
+
+add_executable(
+    node
+    tools/node/blockchain_window.cpp
+    tools/node/blockchain_window.hpp
+    tools/node/main.cpp
+    tools/node/node.cpp
+    tools/node/node.hpp
+    tools/node/window.cpp
+    tools/node/window.hpp)
+target_link_libraries(
+    node
+    PRIVATE
+    naivechain
+	glad::glad
+	glfw
+    imgui::imgui
+    OpenGL::GL)
 
 # -----------------------------------------------------------------------------
 # TEST
